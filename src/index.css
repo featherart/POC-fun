@@ -1,13 +1,91 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: 'DINWebPro', 'Open Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: lightslategray;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.header {
+  height: 85px;
+  background-color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  color: #fff;
+  font-size: 2rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 12px;
+  align-items: center;
+  background-color: #e086a3;
+  color: #333;
+  border: 0;
+  height: 40px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: palevioletred;
+}
+
+.modal-container {
+  background-color: rgba(33, 33, 33, 0.7);
+  position: absolute;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.modal-body {
+  background-color: #fff;
+  color: darkslategray;
+  font-size: 1rem;
+  height: 50%;
+  width: 50%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.modal-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  color: #76B900;
+  font-size: 1.5rem;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 21px;
+  text-transform: uppercase;
+}
+
+.close-x {
+  color: darkslategray;
+}
+
+.close-x:hover {
+  color: darkgray;
 }
