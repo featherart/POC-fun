@@ -1,21 +1,31 @@
 import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 
-const InnerContent = ({ children, close }) => {
+const InnerContent = ({
+  header,
+  content,
+  close,
+  onCancel,
+  onConfirm,
+  actions
+}) => {
   return ReactDOM.createPortal(
     <div className='modal-container'>
       <div className='modal-body'>
         <header className='modal-header'>
-          <span>welcome to my modal</span>
+          <span>{header}</span>
           <span
             className='close-x'
-            onClick={() => close(false)}
-          >
-            X
+            onClick={() => close(false)}>
+            ✕
           </span>
         </header>   
         <div className='modal-content'>
-          {children}
+          {content}
+        </div>
+        <div className='modal-actions'>
+          {onCancel && <button className='cancel-button'>Cancel</button>}
+          {onConfirm && <button className='confirm-button'>Confirm</button>}
         </div>
       </div>
     </div>
@@ -24,13 +34,34 @@ const InnerContent = ({ children, close }) => {
   )
 }
 
-export const Modal = ({ content }) => {
+export const Modal = ({
+  openMessage,
+  header,
+  content,
+  onConfirm,
+  onCancel,
+  actions
+}) => {
   const [isShown, toggleShown] = useState(false)
 
   return (
     <>
-      {!isShown && <button onClick={() => toggleShown(!isShown)}>hi</button>}
-      {isShown && <InnerContent close={toggleShown} />}
+      {!isShown &&
+        <button
+          className='confirm-button'
+          onClick={() => toggleShown(!isShown)}>
+          {openMessage}
+        </button>}
+      { isShown &&
+        <InnerContent
+          close={toggleShown}
+          header={header}
+          content={content}
+          onConfirm={onConfirm}
+          onCancel={onCancel}
+          actions={actions}
+        />
+      }
     </>
   )
 }
