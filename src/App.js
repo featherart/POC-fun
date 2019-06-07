@@ -11,9 +11,10 @@ const App = () =>
         header={'Pieces of Eight'}
         content={content}
         openMessage={'Ahoy Matey!!'}
-        onCancel={() => console.log('nothing happens')}
-        onConfirm={() => console.log('aye aye capn')}
+        onCancel={true}
+        onConfirm={() => console.log('ay ay capn')}
       />
+      <span>🏴‍☠️</span>
     </div>
   </div>
 

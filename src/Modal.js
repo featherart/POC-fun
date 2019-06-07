@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
+import { useTransition, animated, config } from 'react-spring'
 
 const InnerContent = ({
   header,
@@ -24,8 +25,8 @@ const InnerContent = ({
           {content}
         </div>
         <div className='modal-actions'>
-          {onCancel && <button className='cancel-button'>Cancel</button>}
-          {onConfirm && <button className='confirm-button'>Confirm</button>}
+          {onCancel && <button onClick={() => close(false)} className='cancel-button'>Cancel</button>}
+          {onConfirm && <button onClick={onConfirm} className='confirm-button'>Confirm</button>}
         </div>
       </div>
     </div>
@@ -33,6 +34,8 @@ const InnerContent = ({
     document.body
   )
 }
+
+
 
 export const Modal = ({
   openMessage,
@@ -43,7 +46,12 @@ export const Modal = ({
   actions
 }) => {
   const [isShown, toggleShown] = useState(false)
-
+  const transitions = useTransition(isShown, InnerContent, {
+    from: { opacity: 0  },
+    enter: { opacity: isShown ? 1 : 0 },
+    leave: { opacity: 0 },
+    config: config.molasses
+  })
   return (
     <>
       {!isShown &&
@@ -52,15 +60,19 @@ export const Modal = ({
           onClick={() => toggleShown(!isShown)}>
           {openMessage}
         </button>}
-      { isShown &&
-        <InnerContent
-          close={toggleShown}
-          header={header}
-          content={content}
-          onConfirm={onConfirm}
-          onCancel={onCancel}
-          actions={actions}
-        />
+      { transitions.map(({ item, key, props }) =>
+        isShown &&
+        <animated.div key={key} style={props}>
+          <InnerContent
+            close={toggleShown}
+            header={header}
+            content={content}
+            onConfirm={onConfirm}
+            onCancel={onCancel}
+            actions={actions}
+          />
+        </animated.div>
+      )
       }
     </>
   )
