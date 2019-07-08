@@ -40,7 +40,8 @@ const InnerContent = ({
 }
 
 export const Modal = ({
-  openMessage,
+  trigger,
+  triggerMessage,
   header,
   content,
   onConfirm,
@@ -48,15 +49,21 @@ export const Modal = ({
   actions
 }) => {
   const [isShown, toggleShown] = useState(false)
+  console.log('isShown', isShown)
+  // const Trigger = ({ trigger }) => (
+  //   <div onClick={() => toggleShown(true)} style={{backgroundColor: 'red', height: '45px', width: '45px'}}>
+  //     {trigger}
+  //   </div>
+  // )
+  const Trigger = ({ triggerMessage }) =>
+    trigger === 'button'
+      ? <button onClick={() => toggleShown(true)}>
+          {triggerMessage}
+        </button>
+      : <span onClick={() => toggleShown(true)}>{triggerMessage}</span>
   return (
     <div>
-      {!isShown &&
-        <button
-          className="confirm-button"
-          onClick={() => toggleShown(!isShown)}
-        >
-          {openMessage}
-        </button>}
+      {!isShown && <Trigger  />}
       {isShown &&
         <InnerContent
           close={toggleShown}
