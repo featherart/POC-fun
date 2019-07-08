@@ -16,7 +16,7 @@ export const Demo = () => {
       onCancel={true}
       onConfirm={() => console.log('ay ay capn')}
     />
-    <ul>
+    <ul className='list'>
       <Tooltip
         message={'Here be treasure.'}>
           <li>top</li>
