@@ -80,7 +80,7 @@
 
 
 .tooltip-content.left {
-  transform: translate(-115%, -60%);
+  transform: translate(-115%, -100%);
 }
 
 .tooltip-content.left::after {

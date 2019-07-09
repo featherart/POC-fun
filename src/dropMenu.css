@@ -9,10 +9,6 @@ drop menu styling
   position: absolute;
 }
 
-.drop-menu {
-  display: hidden;
-}
-
 /*
   what drop menu will look like
   fixed width so it will center on the ellipsis

@@ -2,6 +2,8 @@ import React from 'react'
 import { Modal } from './Modal'
 import { Tooltip } from './Tooltip'
 import { DropMenu } from './DropMenu'
+import { FloatingActionMenu } from './FloatingActionMenu'
+import { Icon } from './Icon'
 
 const content = 'Ahoy cspanpper skysail Brethren of the Coast trysail maroon keelhaul pinnace shrouds Pirate Round. American Main scurvy lugger furl case shot Spanish Main ho barque Pieces of Eight main sheet. Hempen halter Barbary Coast yard bilge scuttle aye gangway yo-ho-ho holystone boatswain.'
 
@@ -58,6 +60,15 @@ export const Demo = () => {
         { copyValue: 123123, icon: 'copy-1-line', action: 'Copy Item', confirm: true, onClick: () => console.log('copied')}
       ]}
     />
+    <h3>Floating Action Menu</h3>
+    <FloatingActionMenu
+      actions={[
+        {icon: 'network-fill', tooltip: 'Create Interactive Job', onClick: () => console.log('clicked 1')},
+        {icon: 'hierarchy-fill', tooltip: 'Create Maglev Job', onClick: () => console.log('clicked 2')},
+        {icon: 'ngc-resources', tooltip: 'Create Batch', onClick: () => console.log('clicked 3')}
+      ]} />
+    <h3>Icon</h3>
+    <Icon />
   </div>
   )
 }
