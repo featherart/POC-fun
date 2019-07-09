@@ -16,9 +16,9 @@ export const Tooltip = ({
     { success },
     `${position}`
   )
-  const classes = cx('container', className, styleClasses)
+  const classes = cx('ui tooltip', className, styleClasses)
   return (
-    <div className='ui tooltip'>
+    <div>
       <div className={`${classes} ${show ? 'show' : ''}`}>
         <span>{header}</span>
         <p>{message}</p>

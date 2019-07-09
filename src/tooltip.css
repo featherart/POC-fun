@@ -1,8 +1,9 @@
 .ui.tooltip {
-  position: relative;
+  position: absolute;
+  top: 10%;
 }
 
-.ui.tooltip .container {
+.ui.tooltip  {
   min-width: 3em;
   max-width: 21em;
   white-space: nowrap;
@@ -16,12 +17,12 @@
   display: none;
 }
 
-.ui.tooltip .container.show {
+.ui.tooltip.show {
   display: block;
-  transform: translate(-45%, -10%);
+  transform: translate(-40%, -10%);
 }
 
-.ui.tooltip .container.show:after {
+.ui.tooltip.show:after {
   content: '';
   position: absolute;
   width: 0;
@@ -33,32 +34,14 @@
   border-right: 8px solid transparent;
   border-top-color: #333;
   border-bottom: 0;
-  z-index: 1000;
+  z-index: 100;
 }
 
-.ui.tooltip .container.show.right {
-  transform: translate(50%, 50%);
+.ui.tooltip.show.right {
+  transform: translate(50%, 70%);
 }
 
-.ui.tooltip .container.show.right:after {
-  content: '';
-    position: absolute;
-    width: 0;
-    height: 0;
-    top: 30%;
-    left: 0;
-    transform: translate(-80%, 10%);
-    border: 12px solid transparent;
-    border-left-width: 0;
-    border-right-color: #333;
-    z-index: 1000;
-}
-
-.ui.tooltip .container.show.bottom {
-  transform: translate(-45%, 140%);
-}
-
-.ui.tooltip .container.show.bottom:after {
+.ui.tooltip.show.right:after {
   content: '';
   position: absolute;
   width: 0;
@@ -69,23 +52,40 @@
   border: 12px solid transparent;
   border-left-width: 0;
   border-right-color: #333;
-  z-index: 1000;
+  z-index: 100;
 }
 
-.ui.tooltip .container.show.left {
-  transform: translate(-125%, 50%);
+.ui.tooltip.show.bottom {
+  transform: translate(-30%, 220%);
 }
 
-.ui.tooltip .container.show.left:after {
+.ui.tooltip.show.bottom:after {
   content: '';
   position: absolute;
   width: 0;
   height: 0;
+  top: 0;
+  transform: translate(-50%, -10px);
+  border: 13px solid transparent;
+  border-top-width: 0;
+  border-bottom-color: #333;
+  z-index: 100;
+}
+
+.ui.tooltip.show.left {
+  transform: translate(-125%, 145%);
+}
+
+.ui.tooltip.show.left:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  right: 4px;
   top: 30%;
-  left: 0;
-  transform: translate(-80%, 10%);
+  transform: translate(190%, 14%);
   border: 12px solid transparent;
-  border-left-width: 0;
-  border-right-color: #333;
-  z-index: 1000;
+  border-left-color: #333;
+  z-index: 100;
+  height: 0;
 }
