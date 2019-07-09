@@ -46,9 +46,18 @@ export const Demo = () => {
     </div>
     <h3>Drop Menu</h3>
     <DropMenu
-      containerClass={'action-menu-inner'}
-      content={'results'}
+      content={'results of pirate plunder'}
       />
+    <DropMenu
+      onClose={() => console.log('onClose')}
+      onOpen={() => console.log('onOpen')}
+      actions={[
+        {icon: 'bin-line', action: 'Delete Item', danger: true, onClick: () => console.log('deleted')},
+        {icon: 'star-line', action: 'Favorite Item'},
+        {icon: 'sync-line', action: 'Forbidden Item', disabled: true, onClick: () => console.log('nope')},
+        { copyValue: 123123, icon: 'copy-1-line', action: 'Copy Item', confirm: true, onClick: () => console.log('copied')}
+      ]}
+    />
   </div>
   )
 }

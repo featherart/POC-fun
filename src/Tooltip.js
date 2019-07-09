@@ -10,7 +10,7 @@ export const Tooltip = ({
   className,
   success
 }) => {
-  const [show, toggleShow] = useState(false)
+  const [showTooltip, toggleShow] = useState(false)
   const styleClasses = cx(
     { success },
     `${position}`
@@ -18,11 +18,17 @@ export const Tooltip = ({
   const classes = cx('ui tooltip', className, styleClasses)
   return (
     <div>
-      <div className={`${classes} ${show ? 'show' : ''}`}>
-        <span>{header}</span>
-        <p>{message}</p>
-      </div>
-      <span onClick={() => toggleShow(!show)}>{children}</span>
+      <span
+        onClick={() => toggleShow(!showTooltip)}>
+        {children}
+      </span>
+      {
+        showTooltip &&
+        <div className={classes}>
+          <span>{header}</span>
+          <p>{message}</p>
+        </div>
+      }
     </div>
   )
 }

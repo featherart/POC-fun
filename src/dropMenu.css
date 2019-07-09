@@ -3,18 +3,50 @@
 drop menu styling
 */
 
+/* this is the invisible centering element */
+.drop-menu-backdrop {
+  background-color: transparent;
+  position: absolute;
+}
+
 .drop-menu {
   display: hidden;
 }
 
-.drop-menu-row {
-  padding-bottom: 5px;
+.drop-menu-content {
+  cursor: pointer;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 100px;
 }
 
-.drop-menu-row:hover {
+.drop-menu-row {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 4px 8px;
+  cursor: pointer;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 100px;
+}
+
+.drop-menu-action {
+  margin-bottom: 5px;
+}
+
+
+/* semantic coloring here */
+.drop-menu-action:hover {
   font-weight: 600;
 }
 
+/*
+  what drop menu will look like
+  fixed width so it will center on the ellipsis
+*/
 .drop-menu-inner {
   color: white;
   position: absolute;
@@ -23,8 +55,12 @@ drop menu styling
   background-color: rgba(33, 33, 33, 0.8);
   padding: 10px;
   transform: translate(-51px, 12px);
+  animation: fadeIn ease-in 0.2s;
 }
 
+/*
+  pointy bit
+*/
 .drop-menu-inner::before {
   content: "";
   top: -9px;
@@ -37,13 +73,26 @@ drop menu styling
   border-bottom: 11px solid rgba(33, 33, 33, 0.8);
 }
 
-.drop-menu-backdrop {
-  width: 100%;
-  height: 100%;
-  background-color: transparent;
-  position: absolute;
-}
-
 .ellipsis {
   font-size: 1.4rem;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 100;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }

@@ -1,6 +1,5 @@
 .ui.tooltip {
-  position: absolute;
-  top: 10%;
+  display: hidden;
 }
 
 .ui.tooltip  {
