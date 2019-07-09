@@ -8,7 +8,7 @@ const DropMenuContainer = ({
   actions
 }) =>
   <div className='drop-menu-backdrop'>
-    <div className='drop-menu' onMouseLeave={() => handleExit(false)}>
+    <div className='drop-menu' onMouseLeave={() => handleExit(true)}>
       <div className='drop-menu-inner'>
         {content &&
         <div className='drop-menu-content' onClick={() => console.log('clicked on a row')}>
@@ -37,8 +37,8 @@ export const DropMenu = ({
       <span
         className='ellipsis'
         onClick={() => toggleMenu(true)}
-        onMouseOver={() => toggleMenu(false)}
-        onMouseDown={() => toggleMenu(!showMenu)}
+        //onMouseOver={() => toggleMenu(false)}
+        //onMouseDown={() => toggleMenu(!showMenu)}
       >
         ...
       </span>

@@ -21,14 +21,14 @@ export const Demo = () => {
       <h3>Tooltips</h3>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gridGap: '50px 50px', padding: '25px' }}>
       <Tooltip
-        header={'Title'}
+        header={'Yo Title'}
         message={'Here be treasure. Thar be dragons.'}>
           <span>top</span>
       </Tooltip>
       <Tooltip
         position={'right'}
-        header={'Title'}
-        message={'Right here.'}>
+        header={'Title Here'}
+        message={'Right content here.'}>
           <span>right</span>
       </Tooltip>
       <Tooltip

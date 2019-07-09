@@ -2,6 +2,20 @@ import React, { useState } from 'react'
 import cx from 'classnames'
 import './tooltip.css'
 
+const TooltipContainer = ({
+  toggleShow,
+  classes,
+  header,
+  message
+}) => (
+  <div className='tooltip-backdrop'>
+    <div className={classes} onMouseLeave={() => toggleShow(false)}>
+      <span className='tooltip-header'>{header}</span>
+      <p className='tooltip-body'>{message}</p>
+    </div>
+  </div>
+)
+
 export const Tooltip = ({
   children,
   header,
@@ -15,7 +29,7 @@ export const Tooltip = ({
     { success },
     `${position}`
   )
-  const classes = cx('ui tooltip', className, styleClasses)
+  const classes = cx('tooltip-content', className, styleClasses)
   return (
     <div>
       <span
@@ -24,10 +38,12 @@ export const Tooltip = ({
       </span>
       {
         showTooltip &&
-        <div className={classes}>
-          <span>{header}</span>
-          <p>{message}</p>
-        </div>
+        <TooltipContainer
+          toggleShow={toggleShow}
+          classes={classes}
+          header={header}
+          message={message}
+        />
       }
     </div>
   )

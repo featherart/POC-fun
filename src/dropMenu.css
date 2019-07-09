@@ -13,6 +13,24 @@ drop menu styling
   display: hidden;
 }
 
+/*
+  what drop menu will look like
+  fixed width so it will center on the ellipsis
+*/
+.drop-menu-inner {
+  color: white;
+  position: absolute;
+  font-size: 12px;
+  width: 100px;
+  background-color: rgba(33, 33, 33, 0.8);
+  padding: 10px;
+  transform: translate(-51px, 12px);
+  animation: fadeIn ease-in 0.2s;
+}
+
+/*
+  for simple drop menu
+*/
 .drop-menu-content {
   cursor: pointer;
   text-overflow: ellipsis;
@@ -21,6 +39,9 @@ drop menu styling
   max-width: 100px;
 }
 
+/*
+  for drop menu with rows of actions
+*/
 .drop-menu-row {
   display: inline-flex;
   flex-direction: column;
@@ -37,25 +58,9 @@ drop menu styling
   margin-bottom: 5px;
 }
 
-
 /* semantic coloring here */
 .drop-menu-action:hover {
   font-weight: 600;
-}
-
-/*
-  what drop menu will look like
-  fixed width so it will center on the ellipsis
-*/
-.drop-menu-inner {
-  color: white;
-  position: absolute;
-  font-size: 12px;
-  width: 100px;
-  background-color: rgba(33, 33, 33, 0.8);
-  padding: 10px;
-  transform: translate(-51px, 12px);
-  animation: fadeIn ease-in 0.2s;
 }
 
 /*
