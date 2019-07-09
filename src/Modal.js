@@ -1,35 +1,36 @@
-import React, { useState } from 'react'
+import React from 'react'
 import ReactDOM from 'react-dom'
+import './modal.css'
 
 const InnerContent = ({
-  header,
+  title,
   content,
-  close,
+  closeModal,
   onCancel,
   onConfirm,
   actions
 }) => {
   return ReactDOM.createPortal(
-    <div className="modal-container">
-      <div className="modal-body">
-        <header className="modal-header">
+    <div className={'modal-container'}>
+      <div className={'modal-body'}>
+        <header className={'modal-title'}>
           <span>
-            {header}
+            {title}
           </span>
-          <span className="close-x" onClick={() => close(false)}>
+          <span className={'close-x'} onClick={() => closeModal(false)}>
             ✕
           </span>
         </header>
-        <div className="modal-content">
+        <div className={'modal-content'}>
           {content}
         </div>
-        <div className="modal-actions">
+        <div className={'modal-actions'}>
           {onCancel &&
-            <button onClick={() => close(false)} className="cancel-button">
+            <button className={'cancel-button'} onClick={() => closeModal(false)}>
               Cancel
             </button>}
           {onConfirm &&
-            <button onClick={onConfirm} className="confirm-button">
+            <button className={'confirm-button'} onClick={onConfirm}>
               Confirm
             </button>}
         </div>
@@ -42,32 +43,29 @@ const InnerContent = ({
 export const Modal = ({
   trigger,
   triggerMessage,
-  header,
+  title,
   content,
   onConfirm,
   onCancel,
   actions
 }) => {
-  const [isShown, toggleShown] = useState(false)
-  console.log('isShown', isShown)
-  // const Trigger = ({ trigger }) => (
-  //   <div onClick={() => toggleShown(true)} style={{backgroundColor: 'red', height: '45px', width: '45px'}}>
-  //     {trigger}
-  //   </div>
-  // )
-  const Trigger = ({ triggerMessage }) =>
+  const [isShown, toggleShown] = React.useState(false)
+  const Trigger = () =>
     trigger === 'button'
       ? <button onClick={() => toggleShown(true)}>
           {triggerMessage}
         </button>
       : <span onClick={() => toggleShown(true)}>{triggerMessage}</span>
+
   return (
     <div>
-      {!isShown && <Trigger  />}
+      {!isShown &&
+        <Trigger />
+      }
       {isShown &&
         <InnerContent
-          close={toggleShown}
-          header={header}
+          closeModal={toggleShown}
+          title={title}
           content={content}
           onConfirm={onConfirm}
           onCancel={onCancel}
