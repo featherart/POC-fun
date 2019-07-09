@@ -7,10 +7,10 @@ const DropMenuContainer = ({
   handleExit,
   content
 }) =>
-  <div className="drop-menu-backdrop">
-    <div className="drop-menu" onMouseLeave={() => handleExit(false)}>
-      <div className="drop-menu-inner">
-        <div className="drop-menu-row" onClick={() => console.log('hi')}>
+  <div className='drop-menu-backdrop'>
+    <div className='drop-menu' onMouseLeave={() => handleExit(false)}>
+      <div className='drop-menu-inner'>
+        <div className='drop-menu-row' onClick={() => console.log('hi')}>
           {content}
         </div>
       </div>
@@ -22,7 +22,7 @@ export const DropMenu = ({ handleClick, onMouseOver, handleExit }) => {
   return (
     <div>
       <span
-        className="ellipsis"
+        className='ellipsis'
         onClick={() => toggleMenu(true)}
         onMouseOver={() => toggleMenu(false)}
       >
